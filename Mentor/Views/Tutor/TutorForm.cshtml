@@ -1,0 +1,504 @@
+﻿@using Tutor_Finder.Models
+@model Tutor
+@section tutorForm{
+<html>
+
+<head>
+    <link href="~/css/TeacherForm.css" rel="stylesheet">
+    <link href="~/css/animate.min.css" rel="stylesheet">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/css/remixicon.css" rel="stylesheet">
+    <link href="~/css/swiper-bundle.min.css" rel="stylesheet">
+    <style>
+          input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+  
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body style="background-color:#89e6ab">
+    <p class="text-center fs-1" style="margin-top:100px;margin-bottom:-70px;font:Helvetica"> TEACHER FORM</p>
+    <form method="post" action="/Tutor/TutorForm">
+        <section class="h-100">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12">
+                        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                            <div class="card-body p-0">
+                                <div class="row g-0">
+                                    <div class="col-lg-6">
+                                        <div class="p-5">
+                                            <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4 pb-2">
+                                                    <div class="form-outline">
+                                                        <input type="text" id="form3Examplev2" asp-for="FirstName"
+                                                            class="form-control form-control-lg" required />
+                                                        <label class="form-label" for="form3Examplev2"
+                                                            asp-for="FirstName"></label>
+                                                        <div>
+                                                            <span asp-validation-for="FirstName"></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-6 mb-4 pb-2">
+
+                                                    <div class="form-outline">
+                                                        <input type="text" id="form3Examplev3" asp-for="LastName"
+                                                            class="form-control form-control-lg" required />
+                                                        <label class="form-label" for="form3Examplev3"
+                                                            asp-for="LastName"></label>
+                                                        <div>
+                                                            <span asp-validation-for="LastName"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-4 pb-2">
+
+                                                        <div class="form-outline">
+                                                            <input type="password" id="form3Examplev2" asp-for="Password"
+                                                                class="form-control form-control-lg" required />
+                                                            <label class="form-label" asp-for="Password"
+                                                                for="form3Examplev2">Password</label>
+                                                            <div>
+                                                                <span asp-validation-for="Password"></span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-6 mb-4 pb-2">
+
+                                                        <div class="form-outline mx-2">
+                                                            <input type="password" id="form3Examplev3"
+                                                                class="form-control form-control-lg" required />
+                                                            <label class="form-label" for="form3Examplev3">Confirm
+                                                                Password</label>
+                                                            <div>
+                                                                <span asp-validation-for="Password"></span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                             <div class="row">
+                                                <div class="form-outline">
+                                                    <label for="Qualification">Qualification</label>
+                                                </div>
+                                                <div class="col-md-6 mb-4 pb-2 my-2">
+                                                    <div class="form-outline">
+                                                        <select class="form-select" id="Qualification"
+                                                            aria-label="Default select example" asp-for="Qualification" required>
+                                                            <option selected disabled>Qualification Level</option>
+                                                            <option value="Undergraduate">Undergraduate</option>
+                                                            <option value="Postgraduate">Postgraduate</option>
+                                                            <option value="Masters">Masters/Mphill</option>
+                                                            <option value="Phd">Phd</option>
+                                                        </select>
+                                                         <div>
+                                                                <span asp-validation-for="Qualification"></span>
+                                                         </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-6 mb-4 pb-2 my-2 container">
+                                                    <div class="form-outline"  style="margin-top:-24px">
+                                                       
+                                                            <label for="gender">Gender</label>
+                                                        
+                                                        <select class="form-select" id="gender"
+                                                            aria-label="Default select example" asp-for="Gender" required>
+                                                            <option selected disabled>Gender</option>
+                                                            <option value="Male">Male</option>
+                                                            <option value="Female">Female</option>
+                                                            <option value="Other">Other</option>
+                                                        </select>
+                                                        <div>
+                                                           <span asp-validation-for="Gender"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-8 mb-4 pb-2">
+
+                                                        <div class="form-outline">
+                                                             <label class="form-label"
+                                                                asp-for="QualificationSpec"
+                                                                for="form3Examplev2">Qualification Specification</label>
+                                                            <input type="text" id="form3Examplev2"
+                                                                asp-for="QualificationSpec"
+                                                                class="form-control form-control-lg" required />
+                                                           
+                                                            <div>
+                                                                <span
+                                                                    asp-validation-for="QualificationSpec"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                 <div class="form-outline">
+                                                    <label for="Mode">Preferred Mode of Teaching</label>
+                                                </div>
+                                                <div class="col-md-6 mb-4 pb-2 my-2">
+                                                    <div class="form-outline">
+                                                        <select class="form-select" id="Mode" required
+                                                            aria-label="Default select example" asp-for="Mode">
+                                                            <option selected disabled>Mode of Teaching</option>
+                                                            <option value="Online">Online</option>
+                                                            <option value="Physical">Physical</option>
+                                                            <option value="Both">Both</option>
+                                                            <div>
+                                                                <span asp-validation-for="Mode"></span>
+                                                            </div>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-5 container"  style="margin-top:-24px">
+                                                     <div class="form-outline">
+                                                    <label for="Experience">Teaching Experience</label>
+                                                    </div>
+                                                    <div class="form-outline my-2">
+                                           
+                                                        <select class="form-select" id="Experience" required
+                                                            aria-label="Default select example" asp-for="Experience">
+                                                            <option selected disabled>Experience</option>
+                                                            <option value="1">1 year</option>
+                                                            <option value="2">2 years</option>                                                                     
+                                                            <option value="3">3 years</option>
+                                                            <option value="4">4 years</option>
+                                                            <option value="5">5 years</option>
+                                                            <option value="6">6 years</option>
+                                                            <option value="7">7 years</option>
+                                                            <option value="8">8 years</option>
+                                                            <option value="9">9 years</option>
+                                                            <option value="10">10 years</option>
+                                                            <option value="10+">More than 10 years</option>
+                                                          
+                                                        </select>
+                                                          <div>
+                                                                <span asp-validation-for="Experience"></span>
+                                                           </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+
+
+
+                                                  <div class="form-outline">
+                                                    <label for="subject">Enter Subjects Name and Maximum Fee</label>
+                                                </div>
+                                                <div class="row my-2" id="subject">
+                                                    <div class="col-md-6 mb-4 pb-4">
+
+                                                        <div class="form-outline">
+                                                            <input type="text" maxlength="20" placeholder="Enter Subject 1 Title"
+                                                                id="Subject1" asp-for="Subject1"
+                                                                class="form-control form-control-lg" required />
+                                                            <div>
+                                                                <span asp-validation-for="Subject1"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6 mb-4 pb-4">
+
+                                                        <div class="form-outline">
+                                                            <input type="number" id="Fee1" asp-for="Fee1" min="500"
+                                                                class="form-control form-control-lg" placeholder="Enter Fee in Rs." required />
+                                                            <div>
+                                                                <span asp-validation-for="Fee1"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row my-2">
+                                                    <div class="col-md-6 mb-4 pb-4">
+
+                                                        <div class="form-outline">
+                                                            <input type="text" maxlength="20" placeholder="Subject 2 Title (Optional)"
+                                                              asp-for="Subject2"class="form-control form-control-lg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 mb-4 pb-4">
+
+                                                        <div class="form-outline">
+                                                            <input type="number"  asp-for="Fee2" min="500"
+                                                                class="form-control form-control-lg" placeholder="Enter Fee in Rs." />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 bg-indigo text-white">
+                                        <div class="p-5">
+                                            <h3 class="fw-normal mb-5">Contact Details</h3>
+
+                                            
+                                            <div class="row">
+                                                <div class="col-md-5 mb-4 pb-2">
+                                                  <div class="form-outline">
+                                                    <label for="country">Country</label>
+                                                </div>
+                                                <div class="form-outline form-white">
+
+                                                      <select class="form-select" id="country" required
+                                                            aria-label="Default select example" asp-for="Country">
+                                                            <option selected disabled>Select Country</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="India">India</option>                                                                                                                   
+                                                            <option value="Bangladesh">Bangladesh</option>
+                                                            <option value="Australia">Australia</option>
+                                                            <option value="France">France</option>
+                                                          @*  <option value="New Zealand">New Zealand</option>
+                                                            <option value="China">China</option>
+                                                            <option value="Afghanistan">Afghanistan</option>
+                                                            <option value="Nepal">Nepal</option>
+                                                            <option value="SriLanka">SriLanka</option>*@
+                                                               <div>
+                                                                     <span asp-validation-for="Country"></span>
+                                                                </div>
+                                                        </select>
+                                                </div>
+                                            </div>
+
+                                                <div class="col-md-5 mb-4 pb-2">
+                                                  <div class="form-outline">
+                                                    <label for="City">City</label>
+                                                </div>
+                                                <div class="form-outline form-white">
+
+                                                      <select class="form-select" id="City" required
+                                                            aria-label="Default select example" asp-for="City">
+                                                            <!-- Punjab-->
+                                                <option selected disabled>Select City</option>
+                                                <option value="Ahmadpur Sial">Ahmadpur Sial</option>
+                                                <option value="Ahmedpur East">Ahmedpur East</option>
+                                                <option value="Alipur Chatha">Alipur Chatha</option>
+                                                <option value="Arifwala">Arifwala</option>
+                                                <option value="Attock Tehsil">Attock Tehsil</option>
+                                                <option value="Baddomalhi">Baddomalhi</option>
+                                                <option value="Bahawalnagar">Bahawalnagar</option>
+                                                <option value="Bahawalpur">Bahawalpur</option>
+                                                <option value="Bhera">Bhera</option>
+                                                <option value="Bhopalwala">Bhopalwala</option>
+                                                <option value="Burewala">Burewala</option>
+                                                <option value="Dandot RS">Dandot RS</option>
+                                                <option value="Darya Khan">Darya Khan</option>
+                                                <option value="Daska">Daska</option>
+                                                <option value="Daud Khel">Daud Khel</option>
+                                                <option value="Daultala">Daultala</option>
+                                                <option value="Dera Ghazi Khan">Dera Ghazi Khan</option>
+                                                <option value="Faisalabad">Faisalabad</option>
+                                                <option value="Faqirwali">Faqirwali</option>
+                                                <option value="Faruka">Faruka</option>
+                                                <option value="Fazilpur">Fazilpur</option>
+                                                <option value="Ferozewala">Ferozewala</option>
+                                                <option value="Gojra">Gojra</option>
+                                                <option value="Gujar Khan">Gujar Khan</option>
+                                                <option value="Gujranwala">Gujranwala</option>
+                                                <option value="Gujranwala Division">Gujranwala Division</option>
+                                                <option value="Gujrat">Gujrat</option>
+                                                <option value="Hadali">Hadali</option>
+                                                <option value="Hafizabad">Hafizabad</option>
+                                                <option value="Kamoke">Kamoke</option>
+                                                <option value="Kamra">Kamra</option>
+                                                <option value="Kanganpur">Kanganpur</option>
+                                                <option value="Karor">Karor</option>
+                                                <option value="Kot Ghulam Muhammad">Kot Ghulam Muhammad</option>
+                                                <option value="Kot Mumin">Kot Mumin</option>
+                                                <option value="Kot Radha Kishan">Kot Radha Kishan</option>
+                                                <option value="Kot Rajkour">Kot Rajkour</option>
+                                                <option value="Kot Samaba">Kot Samaba</option>
+                                                <option value="Kot Sultan">Kot Sultan</option>
+                                                <option value="Kotli Loharan">Kotli Loharan</option>
+                                                <option value="Kundian">Kundian</option>
+                                                <option value="Kunjah">Kunjah</option>
+                                                <option value="Ladhewala Waraich">Ladhewala Waraich</option>
+                                                <option value="Lahore">Lahore</option>
+                                                <option value="Lala Musa">Lala Musa</option>
+                                                <option value="Lalian">Lalian</option>
+                                                <option value="Layyah">Layyah</option>
+                                                <option value="Layyah District">Layyah District</option>
+                                                <option value="Liliani">Liliani</option>
+                                                <option value="Lodhran">Lodhran</option>
+                                                <option value="Mailsi">Mailsi</option>
+                                                <option value="Malakwal">Malakwal</option>
+                                                <option value="Malakwal City">Malakwal City</option>
+                                                <option value="Mamu Kanjan">Mamu Kanjan</option>
+                                                <option value="Mananwala">Mananwala</option>
+                                                <option value="Mandi Bahauddin">Mandi Bahauddin</option>
+                                                <option value="Mandi Bahauddin District">Mandi Bahauddin District</option>
+                                                <option value="Mangla">Mangla</option>
+                                                <option value="Mankera">Mankera</option>
+                                                <option value="Multan">Multan</option>
+                                                <option value="Multan District">Multan District</option>
+                                                <option value="Muridke">Muridke</option>
+                                                <option value="Murree">Murree</option>
+                                                <option value="Mustafabad">Mustafabad</option>
+                                                <option value="Muzaffargarh">Muzaffargarh</option>
+                                                <option value="Nankana Sahib">Nankana Sahib</option>
+                                                <option value="Narang Mandi">Narang Mandi</option>
+                                                <option value="Narowal">Narowal</option>
+                                                <option value="Naushahra Virkan">Naushahra Virkan</option>
+                                                <option value="Nazir Town">Nazir Town</option>
+                                                <option value="Okara">Okara</option>
+                                                <option value="Pakki Shagwanwali">Pakki Shagwanwali</option>
+                                                <option value="Pakpattan">Pakpattan</option>
+                                                <option value="Pasrur">Pasrur</option>
+                                                <option value="Pattoki">Pattoki</option>
+                                                <option value="Phalia">Phalia</option>
+                                                <option value="Pind Dadan Khan">Pind Dadan Khan</option>
+                                                <option value="Pindi Bhattian">Pindi Bhattian</option>
+                                                <option value="Pindi Gheb">Pindi Gheb</option>
+                                                <option value="Pir Mahal">Pir Mahal</option>
+                                                <option value="Qadirpur Ran">Qadirpur Ran</option>
+                                                <option value="Qila Didar Singh">Qila Didar Singh</option>
+                                                <option value="Rabwah">Rabwah</option>
+                                                <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+                                                <option value="Rahimyar Khan District">Rahimyar Khan District</option>
+                                                <option value="Raiwind">Raiwind</option>
+                                                <option value="Raja Jang">Raja Jang</option>
+                                                <option value="Rajanpur">Rajanpur</option>
+                                                <option value="Rasulnagar">Rasulnagar</option>
+                                                <option value="Rawalpindi">Rawalpindi</option>
+                                                <option value="Rawalpindi District">Rawalpindi District</option>
+                                                <option value="Renala Khurd">Renala Khurd</option>
+                                                <option value="Rojhan">Rojhan</option>
+                                                <option value="Sadiqabad">Sadiqabad</option>
+                                                <option value="Sahiwal">Sahiwal</option>
+                                                <option value="Sambrial">Sambrial</option>
+                                             
+                                            </select>
+                                                        
+                                                               <div>
+                                                                     <span asp-validation-for="City"></span>
+                                                                </div>
+                                    
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                            <div class="row my-2">
+                                                <div class="col-md-5 mb-4 pb-2">
+
+                                                    <div class="form-outline form-white">
+                                                        <label class="form-label" for="pcode">Country Code</label>
+                                                         <div class="form-outline form-white">
+                                                      <select class="form-select" id="pcode" required
+                                                            aria-label="Default select example" asp-for="PhoneCode">
+                                                            <option selected disabled>Choose Phone Code</option>
+                                                        <option data-countryCode="PK" value="92" selected>Pakistan (+92)</option>
+                                                        <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
+                                                        <option data-countryCode="AU" value="61">Australia (+61)</option>
+                                                        <option data-countryCode="IN" value="91">India (+91)</option>
+                                                        <option data-countryCode="FR" value="33">France (+33)</option>
+                                                        </select>
+                                                            </div>
+                                                        <div>
+                                                            <span asp-validation-for="PhoneCode"></span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-5 mb-4 pb-2">
+                                               <label class="form-label" for="form3Examplea8">Phone Number</label>
+                                                    <div class="form-outline form-white">
+                                                        <input type="text" id="form3Examplea8"
+                                                            class="form-control form-control-md"  asp-for="PhoneNumber" required />
+                                                        <div>
+                                                            <span asp-validation-for="PhoneNumber"></span>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 pb-2">
+                                                <div class="form-outline form-white">
+                                                    <input type="text" id="form3Examplea2"
+                                                        class="form-control form-control-lg" asp-for="Address" required/>
+                                                    <label class="form-label" for="form3Examplea2">Home Address</label>
+                                                    <div>
+                                                        <span asp-validation-for="Address"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4">
+                                                <div class="form-outline form-white">
+                                                    <input type="text" id="form3Examplea9" placeholder="e.g, Someone@gmail.com"
+                                                        class="form-control form-control-lg" asp-for="Email"  required/>
+                                                    <label class="form-label" for="form3Examplea9">Your Email</label>
+                                                    <div>
+                                                        <span asp-validation-for="Email"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                                <div class="row align-items-center py-3">
+                                                    <div class="col-md-6 ps-6">
+
+                                                        <h6 class="mb-0">Upload CV</h6>
+
+                                                    </div>
+                                                   @* <div class="col-md-9 pe-5">
+
+                                                        <input class="form-control form-control-lg" id="formFileLg"
+                                                            type="file" required />
+                                                        <div class="small text-white mt-2">Upload your CV/Resume or any
+                                                            other relevant file. Max file size 50 MB</div>
+
+                                                    </div>*@
+                                                </div>
+                                            <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                                                <input class="form-check-input me-3" type="checkbox" required onclick="terms(this)"
+                                                    id="checkbox" />
+                                                <label class="form-check-label text-white" for="checkbox">
+                                                    I do accept the <a href="#!" class="text-white"><u>Terms and
+                                                            Conditions</u></a> of your site.
+                                                </label>
+                                            </div>
+                                            
+                                            <input type="submit" id="submitBtn" disabled class="btn btn-light btn-lg" data-mdb-ripple-color="dark">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+   <script>
+       function terms(termsCheckBox){
+    //If the checkbox has been checked
+    if(termsCheckBox.checked){
+        //Set the disabled property to FALSE and enable the button.
+        document.getElementById("submitBtn").disabled = false;
+    } else{
+        //Otherwise, disable the submit button.
+        document.getElementById("submitBtn").disabled = true;
+    }
+}
+       </script>
+</body>
+</html>
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+}

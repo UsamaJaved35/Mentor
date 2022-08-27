@@ -1,0 +1,92 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Mentor
+build_property.RootNamespace = Mentor
+build_property.ProjectDir = E:\6th semester\EAD\Mentor\Mentor\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\6th semester\EAD\Mentor\Mentor
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/About/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcQWJvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Contact/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Login/LoginStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5TdHVkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Login/LoginTutor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5UdXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Login/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cV2VsY29tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/shared/_AboutPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hhcmVkXF9BYm91dFBhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Student/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Student/StudentForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTdHVkZW50Rm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Student/StudentProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTdHVkZW50UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Student/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxXZWxjb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Tutor/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Tutor/TutorForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcVHV0b3JGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Tutor/TutorProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcVHV0b3JQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Tutor/TutorProfileUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcVHV0b3JQcm9maWxlVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/Tutor/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHV0b3JcV2VsY29tZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/6th semester/EAD/Mentor/Mentor/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

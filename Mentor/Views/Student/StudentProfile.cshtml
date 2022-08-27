@@ -1,0 +1,156 @@
+﻿@model Mentor.Models.Student
+<body>
+    <section style="background-color: #eee;">
+        <h1 class="my-5 text-center" style="color:#198754">@Model.FirstName's Profile</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">@Model.FirstName   @Model.LastName</h5>
+                            <p class="text-muted mb-1">Student</p>
+                            <p class="text-muted mb-4">@Model.City , @Model.Country</p>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a asp-controller="Tutor" asp-action="TutorProfileUpdate">
+                                    <button type="button" class="btn btn-success">Edit Profile</button>
+                                </a>
+                                <a href="">
+                                    <button type="button" class="btn btn-outline-success ms-1">Find Tutors</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;First Name
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.FirstName</p>
+                                </div>             
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;Last Name
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.LastName</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-key" aria-hidden="true"></i>&nbsp;Password
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Password</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-mars-stroke-v"></i>&nbsp;Gender
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Gender</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Education
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Education</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Country
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Country</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;City
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.City</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Email</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Phone Code
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.PhoneCode</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Phone Number
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.PhoneNumber</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3" style="color:#198754">
+                                    <p class="mb-0">
+                                        <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Address
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Address</p>
+                                </div>
+                            </div>
+                            <!--PROGRESSS-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
