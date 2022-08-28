@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Mentor.Models.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,21 +9,30 @@ namespace Tutor_Finder.Controllers
 {
     public class TutorController : Controller
     {
+        private readonly ITutor tutorRepo;
+        private readonly ILogger<TutorController> _logger;
+
+        public TutorController(ILogger<TutorController> logger, ITutor t)
+        {
+            tutorRepo = t;
+            _logger = logger;
+        }
         [HttpGet]
         public ViewResult TutorForm()
         {
             return View();
         }
         [HttpPost]
-        public ViewResult TutorForm(Tutor t)
+        public ViewResult TutorForm(Tutor t, List<IFormFile> postedFiles)
         {
-            TutorRepository tr = new TutorRepository();
             if (ModelState.IsValid)
             {
-                tr.AddTutor(t);
-                  return View("Welcome");
-                //else
-                //    return View("Error");
+                if (tutorRepo.AddTutor(t,postedFiles))
+                {
+                    return View("Welcome");
+                }
+                else
+                    return View("Error");
             }
             else
                 return View();
@@ -35,9 +45,10 @@ namespace Tutor_Finder.Controllers
         {
             return View();
         }
-        public ViewResult TutorProfile()
+        [HttpGet]
+        public ViewResult TutorProfile(Tutor t)
         {
-            return View();
+            return View(t);
         }
         [HttpGet]
         public ViewResult TutorProfileUpdate()

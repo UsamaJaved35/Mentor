@@ -1,15 +1,17 @@
-﻿<body>
+﻿@model Tutor_Finder.Models.Tutor
+<body>
     <section style="background-color: #eee;">
-        <div class="container py-5">
+        <h1 class="my-5 text-center" style="color:#198754">@Model.FirstName's Profile</h1>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                                  alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">John Smith</h5>
-                            <p class="text-muted mb-1">Maths Teacher</p>
-                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                            <h5 class="my-3">@Model.FirstName @Model.LastName</h5>
+                            <p class="text-muted mb-1">@Model.Subject1 Teacher</p>
+                            <p class="text-muted mb-4">@Model.City ,@Model.Country</p>
                             <div class="d-flex justify-content-center mb-2">
                                 <a asp-controller="Tutor" asp-action="TutorProfileUpdate">
                                     <button type="button" class="btn btn-success">Edit Profile</button>
@@ -26,155 +28,196 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp; First Name
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                    <p class="text-muted mb-0">@Model.FirstName</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp; Last Name
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Johnatan Smith</p>
+                                    <p class="text-muted mb-0">@Model.LastName</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-key" aria-hidden="true"></i>&nbsp;Password
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">1234556</p>
+                                    <p class="text-muted mb-0">@Model.Password</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-mars-stroke-v"></i>&nbsp;Gender
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Male</p>
+                                    <p class="text-muted mb-0">@Model.Gender</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;Qualification
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Mphill</p>
+                                    <p class="text-muted mb-0">@Model.Qualification</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-book" aria-hidden="true"></i>&nbsp;Subject 1
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Math</p>
+                                    <p class="text-muted mb-0">@Model.Subject1</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-money" aria-hidden="true"></i>&nbsp;Fee for Subject1
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Fee1</p>
+                                </div>
+                            </div>
+                            <hr>
+                    
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Subject 2
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Physics</p>
+                                    <p class="text-muted mb-0">@Model.Subject2</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-money" aria-hidden="true"></i>&nbsp;Fee for Subject2
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">@Model.Fee2</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;Availability
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    @if ((bool)Model.Availability)
+                                    {
+                                        <p class="text-muted mb-0">Available</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="text-muted mb-0">Not Available</p>
+                                    }
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Country
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Pakistan</p>
+                                    <p class="text-muted mb-0">@Model.Country</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
-                                        <i class="fa fa-map-pin" aria-hidden="true"></i>&nbsp;Zip Code
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-history" aria-hidden="true"></i>&nbsp;Experience
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">200</p>
+                                    <p class="text-muted mb-0">@Model.Experience years</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
-                                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Place
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;City
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Lahore</p>
+                                    <p class="text-muted mb-0">@Model.City</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">example@example.com</p>
+                                    <p class="text-muted mb-0">@Model.Email</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Phone Code
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(097) 234-5678</p>
+                                    <p class="text-muted mb-0">@Model.PhoneCode</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;Phone Number
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">(098) 765-4321</p>
+                                    <p class="text-muted mb-0">@Model.PhoneNumber</p>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">
+                                    <p class="mb-0" style="color:#198754">
                                         <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Address
                                     </p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                                    <p class="text-muted mb-0">@Model.Address</p>
                                 </div>
                             </div>
                             <!--PROGRESSS-->

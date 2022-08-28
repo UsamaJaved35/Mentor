@@ -26,7 +26,7 @@
 </head>
 <body style="background-color:#89e6ab">
     <p class="text-center fs-1" style="margin-top:100px;margin-bottom:-70px;font:Helvetica"> TEACHER FORM</p>
-    <form method="post" action="/Tutor/TutorForm">
+    <form method="post" action="/Tutor/TutorForm" enctype="multipart/form-data">
         <section class="h-100">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -456,14 +456,13 @@
                                                         <h6 class="mb-0">Upload CV</h6>
 
                                                     </div>
-                                                   @* <div class="col-md-9 pe-5">
+                                                   <div class="col-md-9 pe-5">
 
                                                         <input class="form-control form-control-lg" id="formFileLg"
-                                                            type="file" required />
+                                                            type="file" name="postedFiles" required />
                                                         <div class="small text-white mt-2">Upload your CV/Resume or any
                                                             other relevant file. Max file size 50 MB</div>
-
-                                                    </div>*@
+                                                    </div>
                                                 </div>
                                             <div class="form-check d-flex justify-content-start mb-4 pb-3">
                                                 <input class="form-check-input me-3" type="checkbox" required onclick="terms(this)"

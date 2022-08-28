@@ -53,7 +53,7 @@ namespace Tutor_Finder.Models
         [Required(ErrorMessage = "Enter mode of teaching:")]
         [StringLength(10)]
         public string ?Mode { get; set; }
-        public bool? Availability { get; set; }
+        public bool? Availability { get; set; } = true;
         public bool? Status { get; set; } = false;
         [Required(ErrorMessage = "Enter Subject#1 name:")]
         [StringLength(30)]
@@ -61,8 +61,8 @@ namespace Tutor_Finder.Models
         public string ?Subject2 { get; set; }
         [Required(ErrorMessage = "Enter Subject#1 Fee:")]
         [StringLength(10)]
-        public double? Fee1 { get; set; }
-        public double? Fee2 { get; set; }
+        public string? Fee1 { get; set; }
+        public string? Fee2 { get; set; }
         public string ?ImagePath { get; set; }
     }
 }

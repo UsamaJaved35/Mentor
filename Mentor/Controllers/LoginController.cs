@@ -24,13 +24,26 @@ namespace Tutor_Finder.Controllers
             return View("LoginTutor");
         }
         [HttpPost]
-        public ViewResult LoginTutor(Tutor t)
+        public async Task<IActionResult> LoginTutor(Login model)
         {
-            TutorRepository tr = new TutorRepository();
-            if (tr.Login(t))
-                return View("Tutor","TutorProfile");
-            else
-                return View("Error");
+            if (ModelState.IsValid)
+            {
+                if (string.IsNullOrEmpty(model.Password) ||
+                   string.IsNullOrEmpty(model.Email))
+                {
+                    return View("Error");
+                }
+
+                Tutor tutor = login.TutorLogin(model.Email, model.Password);
+                if (tutor != null)
+                {
+                    //ViewBag["Std"] = s;
+                    return RedirectToAction("TutorProfile", "Tutor", tutor);
+                }
+                else
+                    return RedirectToAction("Error", "Tutor");
+            }
+            return View();
         }
         [HttpGet]
         public ViewResult LoginStudent()

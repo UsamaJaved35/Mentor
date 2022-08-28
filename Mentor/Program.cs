@@ -17,6 +17,7 @@ var migrationAssembly = typeof(Program).Assembly.GetName().Name;
 // Add services to the container.
 builder.Services.AddSingleton<IStudent, StudentRepository>();
 builder.Services.AddSingleton<ILogin, LoginRepository>();
+builder.Services.AddSingleton<ITutor, TutorRepository>();
 //builder.Services.AddDbContext<StudentContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:EmployeeDB"]));
 builder.Services.AddDbContext<StudentContext>(options =>
 {

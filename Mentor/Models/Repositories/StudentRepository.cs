@@ -10,20 +10,6 @@ namespace Mentor.Models.Repositories
         {
             using (var context = new StudentContext())
             {
-                //var std = new Student()
-                //{
-                //    FirstName = model.FirstName,
-                //    LastName = model.LastName,
-                //    Password = model.Password,
-                //    Gender = model.Gender,
-                //    Education = model.Education,
-                //    Address = model.Address,
-                //    Country = model.Country,
-                //    City = model.City,
-                //    PhoneCode = model.PhoneCode,
-                //    PhoneNumber = model.PhoneNumber,
-                //    Email = model.Email,
-                //};
                 context.Students.Add(model);
 
                 // or
