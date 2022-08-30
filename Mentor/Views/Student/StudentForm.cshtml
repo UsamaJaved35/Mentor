@@ -3,10 +3,33 @@
 @section studentForm{
         <head>
         <link href="~/css/StudentForm.css" rel="stylesheet">
+            <script type="text/javascript">
+         function btnClick() {
+              var data = $("#studentForm").serialize();
+        $.ajax({
+            type: 'POST',
+            url: '/Student/StudentForm',
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8', 
+            // when we use .serialize() 
+            // this generates the data in query string format. 
+            // this needs the default contentType 
+            // (default content type is: contentType: 'application/x-www-form-urlencoded; charset=UTF-8') 
+            // so it is optional, you can remove it
+            data: data,
+            success: function (result) {
+                alert(result.message)
+                window.location.href = '@Url.Action("Welcome","Student")';
+            },
+            error: function () {
+                alert('Failed to receive the Data');
+            }
+        })
+}
+          </script>
    </head>
     <body style="background-color:#89e6ab">
         <p class="text-center fs-1" style="margin-top:100px;margin-bottom:-70px;font:Helvetica"> STUDENT FORM</p>
-<form method="post" action="/Student/StudentForm">
+<form id="studentForm">
     <section class="h-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -21,7 +44,7 @@
                                             <div class="col-md-6 mb-4 pb-2">
 
                                                 <div class="form-outline">
-                                                    <input id="form3Examplev2" asp-for="FirstName" class="form-control form-control-lg" required />
+                                                    <input id="form3Examplev2" id="FirstName" asp-for="FirstName" class="form-control form-control-lg" required />
                                                     <label class="form-label" for="form3Examplev2">First Name</label>
                                                     <div>
                                                         <span asp-validation-for="FirstName"></span>
@@ -31,7 +54,7 @@
                                             <div class="col-md-6 mb-4 pb-2">
 
                                                 <div class="form-outline">
-                                                    <input type="text" asp-for="LastName" id="form3Examplev3" class="form-control form-control-lg" required />
+                                                    <input type="text" asp-for="LastName"  id="LastName" id="form3Examplev3" class="form-control form-control-lg" required />
                                                     <label class="form-label" for="form3Examplev3">Last Name</label>
                                                     <div>
                                                         <span asp-validation-for="LastName"></span>
@@ -68,12 +91,12 @@
                                             <label for="form3Examplev3">Gender</label>
                                         </div>
                                         <div class="wrapper my-1">
-                                            <input type="radio" name="Gender" id="option-1" asp-for="Gender" value="male" checked>
+                                            <input type="radio" name="Gender"id="option-1" id="Gender" asp-for="Gender" value="male" checked>
                                              <label for="option-1" class="option option-1">
                                                 <div class="dot"></div>
                                                 <span>Male</span>
                                             </label>
-                                            <input type="radio" name="Gender" id="option-2" asp-for="Gender" value="female">
+                                            <input type="radio" name="Gender" id="option-2" id="Gender"  asp-for="Gender" value="female">
                                            
                                             <label for="option-2" class="option option-2">
                                                 <div class="dot"></div>
@@ -101,18 +124,6 @@
                             </select>
                             </div>
                             </div>
-                           
-                                        @*<div class="col-md-6 mb-4 pb-2">
-
-                                            <div class="form-outline">
-                                                <input type="text" asp-for="Education" id="form3Examplev3" class="form-control form-control-lg" />
-                                                <label class="form-label" for="form3Examplev3">Education Level</label>
-                                                <div>
-                                                    <span asp-validation-for="Education"></span>
-                                                </div>
-                                            </div>
-
-                                        </div>*@
                                    </div>
                                 </div>
                                 <div class="col-lg-6 bg-indigo text-white">
@@ -133,11 +144,6 @@
                                                             <option value="Bangladesh">Bangladesh</option>
                                                             <option value="Australia">Australia</option>
                                                             <option value="France">France</option>
-                                                          @*  <option value="New Zealand">New Zealand</option>
-                                                            <option value="China">China</option>
-                                                            <option value="Afghanistan">Afghanistan</option>
-                                                            <option value="Nepal">Nepal</option>
-                                                            <option value="SriLanka">SriLanka</option>*@
                                                                <div>
                                                                      <span asp-validation-for="Country"></span>
                                                                 </div>
@@ -287,7 +293,7 @@
                                                 <div class="col-md-5 mb-4 pb-2">
                                                <label class="form-label" for="form3Examplea8">Phone Number</label>
                                                     <div class="form-outline form-white">
-                                                        <input type="text" id="form3Examplea8"
+                                                        <input type="text" id="form3Examplea8" itemid="PhoneNum"
                                                             class="form-control form-control-md"  asp-for="PhoneNumber" required />
                                                         <div>
                                                             <span asp-validation-for="PhoneNumber"></span>
@@ -299,7 +305,7 @@
 
                                                <div class="mb-4 pb-2">
                                             <div class="form-outline form-white">
-                                                <input type="text" asp-for="Address" id="form3Examplea2" class="form-control form-control-lg" required />
+                                                <input type="text" asp-for="Address" id="form3Examplea2" itemid="address" class="form-control form-control-lg" required />
                                                 <label class="form-label" for="form3Examplea2">Address</label>
                                                 <div>
                                                     <span asp-validation-for="Address"></span>
@@ -309,7 +315,7 @@
 
                                         <div class="mb-4">
                                             <div class="form-outline form-white">
-                                                <input type="text" asp-for="Email" placeholder="e.g, Someone@gmail.com" id="form3Examplea9" class="form-control form-control-lg" required />
+                                                <input type="text" asp-for="Email" itemid="email" placeholder="e.g, Someone@gmail.com" id="form3Examplea9" class="form-control form-control-lg" required />
                                                 <label class="form-label" for="form3Examplea9">Your Email</label>
                                                 <div>
                                                     <span asp-validation-for="Email"></span>
@@ -324,7 +330,7 @@
                                                 I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your site.
                                             </label>
                                         </div>
-                                        <input type="submit" id="submitBtn" disabled class="btn btn-light btn-lg" data-mdb-ripple-color="dark">
+                                        <input type="button" value="Submit" onclick="btnClick()" id="submitBtn" disabled class="btn btn-light btn-lg" data-mdb-ripple-color="dark">
 
                                     </div>
                                 </div>
@@ -337,12 +343,13 @@
     </section>
     </form>
     <script>
-       function terms(termsCheckBox){
+function terms(termsCheckBox) {
     //If the checkbox has been checked
-    if(termsCheckBox.checked){
+    if (termsCheckBox.checked) {
+        console.log('lolo')
         //Set the disabled property to FALSE and enable the button.
         document.getElementById("submitBtn").disabled = false;
-    } else{
+    } else {
         //Otherwise, disable the submit button.
         document.getElementById("submitBtn").disabled = true;
     }

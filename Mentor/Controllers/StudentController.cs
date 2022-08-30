@@ -21,18 +21,26 @@ namespace Mentor.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult StudentForm(Student model)
+        public JsonResult StudentForm(Student model)
         {
-            if (ModelState.IsValid)
+            if (model == null)
             {
-                if(studentRepo.AddStudent(model))
+                return Json(new { status = 0, message = "FAILED TO ADD STUDENT !!!!" });
+            }
+            else
+            {
+                if (ModelState.IsValid)
                 {
-                    return View("Welcome");
+                    if(studentRepo.AddStudent(model))
+                    {
+                        return Json(new { status = 1, message = "STUDENT ADDED SUCCESSFULLY!!!" });
+                    }
+                    else
+                        return Json(new { status = 0, message = "FAILED TO ADD STUDENT !!!!" });
                 }
                 else
-                    return View("Error");
+                    return Json(new { status = 0, message = "FAILED TO ADD STUDENT !!!!" });
             }
-            return View();
     }
         public ViewResult Welcome()
         {
