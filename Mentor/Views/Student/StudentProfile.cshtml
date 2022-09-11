@@ -1,22 +1,46 @@
 ﻿@model Mentor.Models.Student
+<script>
+document.getElementById("logout").style.display = 'inline-block';
+document.getElementById("login").style.display = 'none';
+function logout()
+{
+    document.getElementById("logout").style.display = 'none';
+      var s=document.getElementById("student");
+    if (s) {
+        window.location.href = '@Url.Action("LogoutAsStudent","Login")';
+    }
+    document.getElementById("login").style.display = 'inline-block';
+}
+</script>
 <body>
-    <section style="background-color: #eee;">
+    <section id="student" style="background-color: #eee;">
         <h1 class="my-5 text-center" style="color:#198754">@Model.FirstName's Profile</h1>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                            
+                         @*   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">*@
+                                 @if(@Model.ImagePath==null)
+                                {
+                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                                  alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                }
+                                else
+                                {
+                                     <img src="~/@Model.ImagePath"
+                                 alt="avatar" class="rounded-circle img-fluid" style="width: 190px;height:200px">
+                                }
                             <h5 class="my-3">@Model.FirstName   @Model.LastName</h5>
                             <p class="text-muted mb-1">Student</p>
                             <p class="text-muted mb-4">@Model.City , @Model.Country</p>
                             <div class="d-flex justify-content-center mb-2">
-                                <a asp-controller="Tutor" asp-action="TutorProfileUpdate">
+                                <a onclick="location.href='@Url.Action("StudentProfileUpdate", "Student",@Model)'">
                                     <button type="button" class="btn btn-success">Edit Profile</button>
                                 </a>
-                                <a href="">
+                                <a onclick="location.href='@Url.Action("GetTutorsList", "Tutor")'">
                                     <button type="button" class="btn btn-outline-success ms-1">Find Tutors</button>
                                 </a>
                             </div>

@@ -15,6 +15,13 @@
         <link href="~/css/aos.css" rel="stylesheet">
         <link href="~/css/bootstrap.min.css" rel="stylesheet">
         <link href="~/css/swiper-bundle.min.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
         <!-- CSS only -->
         <link href="~/css/Style.css" rel="stylesheet">
         <!-- Favicons -->
@@ -55,7 +62,7 @@
                     <ul>
                         <li><a class="active" asp-controller="home" asp-action="Index" style="text-decoration:none">Home</a></li>
                         <li><a asp-controller="about" asp-action="About" style="text-decoration:none">About</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown" id="login">
                             <a><span>Login</span> <i class="fa fa-chevron-down"></i></a>
                             <ul>
                                 <li><a asp-controller="login" asp-action="logintutor" style="text-decoration:none">AS A TEACHER</a></li>
@@ -74,8 +81,9 @@
                 </nav><!-- .navbar -->
                 <!-- Button trigger modal -->
                     <a type="button" style="text-decoration:none" class="get-started-btn" 
-                       data-toggle="modal" data-target="#exampleModalCenter">Get Started</a>
-            </div>
+                       data-toggle="modal" data-target="#exampleModalCenter">Get Started</a> &nbsp;&nbsp;
+                        <a type="button"  onclick="logout()"  id="logout" style="display:none" class="btn btn-outline-success rounded-pill">Logout</a>
+                   </div>
         </header><!-- End Header -->
         <div>
             @RenderBody()

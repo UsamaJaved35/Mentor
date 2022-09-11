@@ -4,6 +4,7 @@ using Mentor.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mentor.Migrations
 {
     [DbContext(typeof(StudentContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20220910124655_ManyToManyRel")]
+    partial class ManyToManyRel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,11 +111,6 @@ namespace Mentor.Migrations
 
                     b.Property<int>("TId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("requestStatus")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
 
                     b.HasKey("Id");
 
@@ -235,13 +232,13 @@ namespace Mentor.Migrations
             modelBuilder.Entity("Mentor.Models.Student_Tutor", b =>
                 {
                     b.HasOne("Mentor.Models.Student", "Student")
-                        .WithMany("StudentTutors")
+                        .WithMany("Student_Tutors")
                         .HasForeignKey("SId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Mentor.Models.Tutor", "Tutor")
-                        .WithMany("StudentTutors")
+                        .WithMany("Student_Tutors")
                         .HasForeignKey("TId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -253,12 +250,12 @@ namespace Mentor.Migrations
 
             modelBuilder.Entity("Mentor.Models.Student", b =>
                 {
-                    b.Navigation("StudentTutors");
+                    b.Navigation("Student_Tutors");
                 });
 
             modelBuilder.Entity("Mentor.Models.Tutor", b =>
                 {
-                    b.Navigation("StudentTutors");
+                    b.Navigation("Student_Tutors");
                 });
 #pragma warning restore 612, 618
         }

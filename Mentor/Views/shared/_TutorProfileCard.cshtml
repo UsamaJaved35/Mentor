@@ -1,0 +1,72 @@
+﻿@model Mentor.Models.Tutor
+<head>
+	<script type="text/javascript">
+		$(document).ready(function () {        
+        $("#class").click(function () {
+           $(this).removeClass("btn-success").addClass("btn-secondary");
+		    $("#class").prop('disabled', true);
+            $(this).html('<i class="fa fa-check"></i>  Request Sent');
+        });
+    });
+function sendReq() {
+    var data = "@Model.Email";
+	console.log(data)
+			$.ajax({
+				type: "POST",
+			 url: "@Url.Action("sendRequest", "Student")",
+			//contentType: "application/json; charset=utf-8",
+                data: {
+					data:data
+				},
+				dataType: "json",
+			success: function (a) {
+			alert(a)
+			 },
+			 error: function (e) {
+			 alert("masla");
+			}
+		 });
+	}
+		</script>
+</head>
+<body>
+<section class="container center">
+<div>
+	<div class="row pt-2" style="margin-top:-60px">
+		<div class="col-md-12">
+			<div class="d-flex flex-row border rounded">
+	  			<div class="p-0 w-25">
+	  			    <img src="https://c1.staticflickr.com/3/2862/12328317524_18e52b5972_k.jpg" class="img-thumbnail border-0" />
+	  			</div>
+	  			<div class="pl-3 pt-2 pr-2 pb-2 w-80 border-left">
+	  					<h4 class="text-success">@Model.FirstName @Model.LastName</h4>
+						<h5 class="text-info">From: @Model.City ,@Model.Country</h5>
+						<h5 class="text-info">Qualification: @Model.Qualification (@Model.QualificationSpec)</h5>
+						<h5 class="text-info">Gender: @Model.Gender</h5>
+						<h5 class="text-info">Experience: @Model.Experience Years</h5>
+							@if(@Model.Availability==true)
+							{
+								<h5 class="text-info">Availability: Available</h5>
+							}
+							else
+							{
+								<h5 class="text-info">Availability: Not Available</h5>
+							}
+							
+	  					<h5 class="text-info">Subject1: @Model.Subject1 | Fee(@Model.Fee1)</h5>
+						@if (@Model.Subject2 != null)
+						{
+							<h5 class="text-info">Subject2: @Model.Subject2 | Fee(@Model.Fee2)</h5>
+						}
+						<h5 class="text-info">Preferred Mode: @Model.Mode</h5>
+						<p class="text-right m-0">
+							<button onclick="sendReq()" id="class" class="btn btn-success">
+								<i id="icon" class="fa fa-paper-plane"></i> 
+								Send Request</button></p>
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+</section>
+</body>

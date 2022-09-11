@@ -1,4 +1,4 @@
-﻿@using Tutor_Finder.Models
+﻿@using Mentor.Models
 @model Tutor
 @section tutorForm{
 <html>
@@ -159,11 +159,11 @@
                                                             <option value="Online">Online</option>
                                                             <option value="Physical">Physical</option>
                                                             <option value="Both">Both</option>
-                                                            <div>
-                                                                <span asp-validation-for="Mode"></span>
-                                                            </div>
                                                         </select>
                                                     </div>
+                                                     <div>
+                                                           <span asp-validation-for="Mode"></span>
+                                                      </div>
                                                 </div>
                                                 
                                                 <div class="col-md-5 container"  style="margin-top:-24px">

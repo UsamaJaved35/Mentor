@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Tutor_Finder.Models
+namespace Mentor.Models
 {
     public partial class Tutor
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int TId { get; set; }
         //MODEL VALIDATIONS
         [Required(ErrorMessage = "Enter FirstName:")]
         [StringLength(50)]
@@ -64,5 +64,8 @@ namespace Tutor_Finder.Models
         public string? Fee1 { get; set; }
         public string? Fee2 { get; set; }
         public string ?ImagePath { get; set; }
+
+        //navigation properties
+        public virtual ICollection<Student_Tutor> StudentTutors { get; set; }
     }
 }

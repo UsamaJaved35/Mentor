@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Tutor_Finder.Models;
+using Mentor.Models;
 
 namespace Tutor_Finder.Controllers
 {
@@ -31,13 +31,13 @@ namespace Tutor_Finder.Controllers
                 if (string.IsNullOrEmpty(model.Password) ||
                    string.IsNullOrEmpty(model.Email))
                 {
-                    return View("Error");
+                    return View("LoginTutor");
                 }
 
                 Tutor tutor = login.TutorLogin(model.Email, model.Password);
                 if (tutor != null)
                 {
-                    //ViewBag["Std"] = s;
+                    HttpContext.Session.SetString("T_Id", tutor.TId.ToString());
                     return RedirectToAction("TutorProfile", "Tutor", tutor);
                 }
                 else
@@ -64,8 +64,8 @@ namespace Tutor_Finder.Controllers
                 Student s = login.StudentLogin(model.Email, model.Password);
                 if(s!=null)
                 {
-                    Console.WriteLine(s.Address);
-                    //ViewBag["Std"] = s;
+                    HttpContext.Session.SetString("S_Id", s.SId.ToString());
+                    Console.WriteLine(HttpContext.Session.GetString("S_Id"));
                     return RedirectToAction("StudentProfile", "Student",s);
                 }
                 else
@@ -73,11 +73,21 @@ namespace Tutor_Finder.Controllers
             }
             return View(model);
         }
-       // [HttpGet]
+        // [HttpGet]
         //public async Task<IActionResult> Logout()
         //{
         //    await signInManager.SignOutAsync();
         //    return RedirectToAction("index", "home");
         //}
+        [HttpGet]
+        public IActionResult LogoutAsTutor()
+        {
+            return View("LoginTutor");  
+        }
+        [HttpGet]
+        public IActionResult LogoutAsStudent()
+        {
+            return View("LoginStudent");
+        }
     }
 }

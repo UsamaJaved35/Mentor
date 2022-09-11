@@ -9,7 +9,7 @@ namespace Mentor.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int SId { get; set; }
         [Required]
         [StringLength(20, ErrorMessage = "Length should not exceed 20 characters")]
         public string? FirstName { get; set; }
@@ -49,5 +49,7 @@ namespace Mentor.Models
         [Required(ErrorMessage = "Enter valid Email:")]
         [EmailAddress]
         public string ?Email { get; set; }
+        public string? ImagePath { get; set; }
+        public virtual ICollection<Student_Tutor> StudentTutors { get; set; }
     }
 }

@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Mentor.Models.Student>
+<h1 class="text-center" style="margin-top:100px">STUDENTS REQUESTS</h1>
+@foreach(var t in Model)
+{
+	<partial name="_StudentProfileCard" model="t"/>
+}

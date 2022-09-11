@@ -1,17 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model Mentor.Models.Tutor
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
 <body>
+   <form method="post" action="/Tutor/TutorProfileUpdate" enctype="multipart/form-data">
     <section style="background-color: #eee;">
         <div class="container py-5">
             <div class="row">
@@ -20,12 +11,13 @@
                         <div class="card-body text-center">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                                  alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">John Smith</h5>
-                            <p class="text-muted mb-1">Maths Teacher</p>
-                            <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+                            <h5 class="my-3">@Model.FirstName @Model.LastName</h5>
+                            <p class="text-muted mb-1">@Model.Subject1 Teacher</p>
+                            <p class="text-muted mb-4">@Model.City , @Model.Country</p>
                             <h6>Upload a different photo...</h6>
                             <div class="d-flex justify-content-center mb-2">
-                                <input type="file" class="form-control">
+                                 <input class="form-control form-control-lg" id="formFileLg"
+                                            type="file" name="postedFiles"/>
                             </div>
                         </div>
                     </div>
@@ -40,8 +32,10 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="John Doe" placeholder="Enter First Name :">
+                                    <input type="text" class="form-control" asp-for="FirstName" required
+                                    value="@Model.FirstName" placeholder="Enter First Name :">
                                 </div>
+                                  <div><span asp-validation-for="FirstName"></span></div>
                             </div>
                             <hr>
                             <div class="row">
@@ -51,8 +45,10 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="John Doe" placeholder="Enter Last Name :">
+                                    <input type="text" class="form-control" value="@Model.LastName"
+                                    asp-for="LastName" placeholder="Enter Last Name :" required>
                                 </div>
+                                  <div><span asp-validation-for="LastName"></span></div>
                             </div>
                             <hr>
                             <div class="row">
@@ -62,10 +58,25 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="1234" placeholder="Enter Password:">
+                                    <input type="text" class="form-control" value="@Model.Password" asp-for="Password" required
+                                    placeholder="Enter Password:" maxlength="10">
                                 </div>
+                                 <div><span asp-validation-for="Password"></span></div>
                             </div>
                             <hr>
+                            @* <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        <i class="fa fa-key" aria-hidden="true"></i>&nbsp;Confirm Password
+                                    </p>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" value="@Model." asp-for="ConfirmPassword" required
+                                    placeholder="Enter Password:" maxlength="10">
+                                </div>
+                                 <div><span asp-validation-for="Password"></span></div>
+                            </div>
+                            <hr>*@
                             <div class="row">
                                 <div class="col-sm-3">
                                     <!---->
@@ -74,12 +85,12 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected disabled>Gender</option>
+                                    <select class="form-select" aria-label="Default select example" asp-for="Gender" required>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
                                     </select>
+                                     <div><span asp-validation-for="Gender"></span></div>
                                 </div>
                                 <!---->
                             </div>
@@ -91,15 +102,36 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected disabled>Qualification</option>
-                                        <option value="Male">Phd</option>
-                                        <option value="Female">Masters/Mphill</option>
-                                        <option value="Other">Bachelors</option>
-                                    </select>
+                                    <select class="form-select" id="Qualification"
+                                     aria-label="Default select example" asp-for="Qualification" required>
+                                      <option selected disabled>Qualification Level</option>
+                                      <option value="Undergraduate">Undergraduate</option>
+                                      <option value="Postgraduate">Postgraduate</option>
+                                      <option value="Masters">Masters/Mphill</option>
+                                      <option value="Phd">Phd</option>
+                                       </select>
+                             <div>
+                              <span asp-validation-for="Qualification"></span>
+                             </div>
                                 </div>
                             </div>
                             <hr>
+                       
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        <i class="fa fa-book" aria-hidden="true"></i>&nbsp;Specification
+                                    </p>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" asp-for="QualificationSpec" value="@Model.QualificationSpec" placeholder="Enter Subject1 Name:">
+                                </div>
+                                <div>
+                              <span asp-validation-for="QualificationSpec"></span>
+                             </div>
+                            </div>
+                            <hr>
+
                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0">
@@ -107,51 +139,265 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="Math" placeholder="Enter Subject1 Name:">
+                                    <input type="text" class="form-control" asp-for="Subject1" value="@Model.Subject1" placeholder="Enter Subject1 Name:">
+                                </div>
+                                <div>
+                              <span asp-validation-for="Subject1"></span>
+                             </div>
+                            </div>
+                            <hr>
+
+                              <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-money" aria-hidden="true"></i>&nbsp;Fee for Subject1
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                 <input type="number" class="form-control" asp-for="Fee1" value="@Model.Fee1" placeholder="Enter Subject1 Fee:">
                                 </div>
                             </div>
+                            <hr>
+
+                            
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        <i class="fa fa-book" aria-hidden="true"></i>&nbsp;Subject 2
+                                    </p>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" asp-for="Subject2" value="@Model.Subject2" placeholder="Enter Subject2 Name:">
+                                </div>
+                                <div>
+                              <span asp-validation-for="Subject2"></span>
+                             </div>
+                            </div>
+                            <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-money" aria-hidden="true"></i>&nbsp;Fee for Subject2
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                 <input type="text" class="form-control" asp-for="Fee2" value="@Model.Fee2" placeholder="Enter Subject2 Fee:">
+                                </div>
+                            </div>
+                            <hr>
+                                 <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color:#198754">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;Availability
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select class="form-select" aria-label="Default select example" asp-for="Availability" required>
+                                        <option value="false">Not Available</option>
+                                        <option value="true">Available</option>
+                                    </select>
+                                     <div><span asp-validation-for="Availability"></span></div>
+                                </div>
+                            </div>
+                            <hr>
+
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Teaching Mode
+                                    </p>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <div class="form-outline">
+                                                        <select class="form-select" id="Mode" required
+                                                            aria-label="Default select example" asp-for="Mode">
+                                                            <option selected disabled>Mode of Teaching</option>
+                                                            <option value="Online">Online</option>
+                                                            <option value="Physical">Physical</option>
+                                                            <option value="Both">Both</option>
+                                                        </select>
+                                                    </div>
+                                                     <div>
+                                                           <span asp-validation-for="Mode"></span>
+                                                      </div>
+
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        <i class="fa fa-flag" aria-hidden="true"></i>&nbsp;Country
+                                    </p>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                      <div class="form-outline form-white">
+
+                                                      <select class="form-select" id="country" required
+                                                            aria-label="Default select example" asp-for="Country">
+                                                            <option selected disabled>Select Country</option>
+                                                            <option value="Pakistan">Pakistan</option>
+                                                            <option value="India">India</option>                                                                                                                   
+                                                            <option value="Bangladesh">Bangladesh</option>
+                                                            <option value="Australia">Australia</option>
+                                                            <option value="France">France</option>
+                                                        </select>
+                                                        <div>
+                                                           <span asp-validation-for="Country"></span>
+                                                         </div>
+
+                                        </div>
+                                </div>
+                                </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0">
-                                        <i class="fa fa-book" aria-hidden="true"></i>&nbsp; Subject 2
+                                        <i class="fa fa-history" aria-hidden="true"></i>&nbsp;Experience
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="Physics" placeholder="Enter Subject2 Name:">
+                                      <div class="form-outline form-white">
+                                                     <select class="form-select" id="Experience" required
+                                                            aria-label="Default select example" asp-for="Experience">
+                                                            <option selected disabled>Experience</option>
+                                                            <option value="1">1 year</option>
+                                                            <option value="2">2 years</option>                                                                     
+                                                            <option value="3">3 years</option>
+                                                            <option value="4">4 years</option>
+                                                            <option value="5">5 years</option>
+                                                            <option value="6">6 years</option>
+                                                            <option value="7">7 years</option>
+                                                            <option value="8">8 years</option>
+                                                            <option value="9">9 years</option>
+                                                            <option value="10">10 years</option>
+                                                            <option value="10+">More than 10 years</option>
+                                                          
+                                                        </select>
+                                                          <div>
+                                                                <span asp-validation-for="Experience"></span>
+                                                           </div>
                                 </div>
                             </div>
+                            </div>
                             <hr>
+
                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0">
-                                        <i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Country
+                                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;City
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="Pakistan" placeholder="Enter Country Name:">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">
-                                        <i class="fa fa-map-pin" aria-hidden="true"></i>&nbsp;Zip Code
-                                    </p>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="200" placeholder="Enter Zip Code:">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">
-                                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Place
-                                    </p>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="Lahore" placeholder="Enter Place:">
+                                    <select class="form-select" id="City" required
+                                                            aria-label="Default select example" asp-for="City">
+                                                            <!-- Punjab-->
+                                                <option selected disabled>Select City</option>
+                                                <option value="Ahmadpur Sial">Ahmadpur Sial</option>
+                                                <option value="Ahmedpur East">Ahmedpur East</option>
+                                                <option value="Alipur Chatha">Alipur Chatha</option>
+                                                <option value="Arifwala">Arifwala</option>
+                                                <option value="Attock Tehsil">Attock Tehsil</option>
+                                                <option value="Baddomalhi">Baddomalhi</option>
+                                                <option value="Bahawalnagar">Bahawalnagar</option>
+                                                <option value="Bahawalpur">Bahawalpur</option>
+                                                <option value="Bhera">Bhera</option>
+                                                <option value="Bhopalwala">Bhopalwala</option>
+                                                <option value="Burewala">Burewala</option>
+                                                <option value="Dandot RS">Dandot RS</option>
+                                                <option value="Darya Khan">Darya Khan</option>
+                                                <option value="Daska">Daska</option>
+                                                <option value="Daud Khel">Daud Khel</option>
+                                                <option value="Daultala">Daultala</option>
+                                                <option value="Dera Ghazi Khan">Dera Ghazi Khan</option>
+                                                <option value="Faisalabad">Faisalabad</option>
+                                                <option value="Faqirwali">Faqirwali</option>
+                                                <option value="Faruka">Faruka</option>
+                                                <option value="Fazilpur">Fazilpur</option>
+                                                <option value="Ferozewala">Ferozewala</option>
+                                                <option value="Gojra">Gojra</option>
+                                                <option value="Gujar Khan">Gujar Khan</option>
+                                                <option value="Gujranwala">Gujranwala</option>
+                                                <option value="Gujranwala Division">Gujranwala Division</option>
+                                                <option value="Gujrat">Gujrat</option>
+                                                <option value="Hadali">Hadali</option>
+                                                <option value="Hafizabad">Hafizabad</option>
+                                                <option value="Kamoke">Kamoke</option>
+                                                <option value="Kamra">Kamra</option>
+                                                <option value="Kanganpur">Kanganpur</option>
+                                                <option value="Karor">Karor</option>
+                                                <option value="Kot Ghulam Muhammad">Kot Ghulam Muhammad</option>
+                                                <option value="Kot Mumin">Kot Mumin</option>
+                                                <option value="Kot Radha Kishan">Kot Radha Kishan</option>
+                                                <option value="Kot Rajkour">Kot Rajkour</option>
+                                                <option value="Kot Samaba">Kot Samaba</option>
+                                                <option value="Kot Sultan">Kot Sultan</option>
+                                                <option value="Kotli Loharan">Kotli Loharan</option>
+                                                <option value="Kundian">Kundian</option>
+                                                <option value="Kunjah">Kunjah</option>
+                                                <option value="Ladhewala Waraich">Ladhewala Waraich</option>
+                                                <option value="Lahore">Lahore</option>
+                                                <option value="Lala Musa">Lala Musa</option>
+                                                <option value="Lalian">Lalian</option>
+                                                <option value="Layyah">Layyah</option>
+                                                <option value="Layyah District">Layyah District</option>
+                                                <option value="Liliani">Liliani</option>
+                                                <option value="Lodhran">Lodhran</option>
+                                                <option value="Mailsi">Mailsi</option>
+                                                <option value="Malakwal">Malakwal</option>
+                                                <option value="Malakwal City">Malakwal City</option>
+                                                <option value="Mamu Kanjan">Mamu Kanjan</option>
+                                                <option value="Mananwala">Mananwala</option>
+                                                <option value="Mandi Bahauddin">Mandi Bahauddin</option>
+                                                <option value="Mandi Bahauddin District">Mandi Bahauddin District</option>
+                                                <option value="Mangla">Mangla</option>
+                                                <option value="Mankera">Mankera</option>
+                                                <option value="Multan">Multan</option>
+                                                <option value="Multan District">Multan District</option>
+                                                <option value="Muridke">Muridke</option>
+                                                <option value="Murree">Murree</option>
+                                                <option value="Mustafabad">Mustafabad</option>
+                                                <option value="Muzaffargarh">Muzaffargarh</option>
+                                                <option value="Nankana Sahib">Nankana Sahib</option>
+                                                <option value="Narang Mandi">Narang Mandi</option>
+                                                <option value="Narowal">Narowal</option>
+                                                <option value="Naushahra Virkan">Naushahra Virkan</option>
+                                                <option value="Nazir Town">Nazir Town</option>
+                                                <option value="Okara">Okara</option>
+                                                <option value="Pakki Shagwanwali">Pakki Shagwanwali</option>
+                                                <option value="Pakpattan">Pakpattan</option>
+                                                <option value="Pasrur">Pasrur</option>
+                                                <option value="Pattoki">Pattoki</option>
+                                                <option value="Phalia">Phalia</option>
+                                                <option value="Pind Dadan Khan">Pind Dadan Khan</option>
+                                                <option value="Pindi Bhattian">Pindi Bhattian</option>
+                                                <option value="Pindi Gheb">Pindi Gheb</option>
+                                                <option value="Pir Mahal">Pir Mahal</option>
+                                                <option value="Qadirpur Ran">Qadirpur Ran</option>
+                                                <option value="Qila Didar Singh">Qila Didar Singh</option>
+                                                <option value="Rabwah">Rabwah</option>
+                                                <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+                                                <option value="Rahimyar Khan District">Rahimyar Khan District</option>
+                                                <option value="Raiwind">Raiwind</option>
+                                                <option value="Raja Jang">Raja Jang</option>
+                                                <option value="Rajanpur">Rajanpur</option>
+                                                <option value="Rasulnagar">Rasulnagar</option>
+                                                <option value="Rawalpindi">Rawalpindi</option>
+                                                <option value="Rawalpindi District">Rawalpindi District</option>
+                                                <option value="Renala Khurd">Renala Khurd</option>
+                                                <option value="Rojhan">Rojhan</option>
+                                                <option value="Sadiqabad">Sadiqabad</option>
+                                                <option value="Sahiwal">Sahiwal</option>
+                                                <option value="Sambrial">Sambrial</option>
+                                             
+                                            </select>
+                                                        
+                                                               <div>
+                                                                     <span asp-validation-for="City"></span>
+                                                                </div>
+                                    
                                 </div>
                             </div>
                             <hr>
@@ -162,7 +408,7 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="abc@gmail.com" placeholder="Enter Email:">
+                                   <input type="text" class="form-control" asp-for="Email" value="@Model.Email" readonly>
                                 </div>
                             </div>
                             <hr>
@@ -173,9 +419,23 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="+92" placeholder="Enter Phone Code:">
+                                      <div class="form-outline form-white">
+                                                      <select class="form-select" id="pcode" required
+                                                            aria-label="Default select example" asp-for="PhoneCode">
+                                                            <option selected disabled>Choose Phone Code</option>
+                                                        <option data-countryCode="PK" value="92" selected>Pakistan (+92)</option>
+                                                        <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
+                                                        <option data-countryCode="AU" value="61">Australia (+61)</option>
+                                                        <option data-countryCode="IN" value="91">India (+91)</option>
+                                                        <option data-countryCode="FR" value="33">France (+33)</option>
+                                                        </select>
+                                                            </div>
+                                                        <div>
+                                                            <span asp-validation-for="PhoneCode"></span>
+                                                        </div>
+                                   </div>
                                 </div>
-                            </div>
+                
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
@@ -184,40 +444,44 @@
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="3134949510" placeholder="Enter Phone Number:">
+                                    <input type="text" asp-for="PhoneNumber" class="form-control" value="@Model.PhoneNumber" placeholder="Enter Phone Number:">
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
+                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0">
                                         <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Address
                                     </p>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <textarea name="" id="" cols="30" rows="8" class="form-control" placeholder="Enter your Address:">
-                                    </textarea>
+                                    <input type="text"  class="form-control"  asp-for="Address" palceholder="Enter your address" value="@Model.Address" required/>
                                 </div>
+                                <div><span asp-validation-for="Address"></span></div>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-center mb-2">
+                              <div class="d-flex justify-content-center mb-2">
+                                <input type="submit"  value="Save Changes" class="btn btn-success">
+                                &nbsp;&nbsp;
+                                <button onclick="location.href='@Url.Action("tutorprofile", "tutor",@Model)'" type="button" class="btn btn-outline-success ms-1">Cancel</button>
+                            </div>
+                            @*<div class="d-flex justify-content-center mb-2">
                                 <button type="button" class="btn btn-success">Save Changes</button>
                                 &nbsp;&nbsp;
                                 <button type="button" class="btn btn-outline-success ms-1">Cancel</button>
-                            </div>
-                            <div class="d-flex justify-content-center mb-2">
+                            </div>*@
+                           @* <div class="d-flex justify-content-center mb-2">
                                 <a href="" style="text-decoration:none;color: green;">
                                     <p> <i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to Home</p>
                                 </a>
-                            </div>
+                            </div>*@
                             <!--PROGRESSS-->
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    </form>
 </body>
 </html>

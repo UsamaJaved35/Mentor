@@ -1,4 +1,4 @@
-﻿using Tutor_Finder.Models;
+﻿using Mentor.Models;
 
 namespace Mentor.Models.Interfaces
 {

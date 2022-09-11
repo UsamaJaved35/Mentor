@@ -1,0 +1,73 @@
+﻿@model Mentor.Models.Student
+<head>
+	<script type="text/javascript">
+		$(document).ready(function () {        
+        $("#class").click(function () {
+           $(this).removeClass("btn-success").addClass("btn-secondary");
+		    $("#class").prop('disabled', true);
+			 $("#decline").prop('disabled', true);
+            $(this).html('<i class="fa fa-check"></i>  Request Sent');
+        });
+		$("#decline").click(function () {
+           $(this).removeClass("btn-danger").addClass("btn-secondary");
+		    $("#class").prop('disabled', true);
+			 $("#decline").prop('disabled', true);
+            $(this).html('<i class="fa fa-check"></i>  Request Declined');
+        });
+    });
+function req(status) {
+	console.log(status)
+	var data = { 
+                 'status': status,
+                 'id':@Model.SId
+               };
+			   	console.log(@Model.SId)
+				   console.log(data)
+			$.ajax({
+				type: "POST",
+				 url: "@Url.Action("requestStatus", "Tutor")",
+				//contentType: "application/json; charset=utf-8",
+				dataType: "json",
+                data:data,
+			success: function (a) {
+				alert(a)
+			 },
+			 error: function (e) {
+			 alert("masla");
+			}
+		 });
+	}
+		</script>
+</head>
+<body>
+<section class="container center">
+<div>
+	<div class="row pt-2" style="margin-top:-60px">
+		<div class="col-md-12">
+			<div class="d-flex flex-row border rounded">
+	  			<div class="p-0 w-25">
+	  			    <img src="https://c1.staticflickr.com/3/2862/12328317524_18e52b5972_k.jpg" class="img-thumbnail border-0" />
+	  			</div>
+	  			<div class="pl-3 pt-2 pr-2 pb-2 w-80 border-left">
+	  					<h4 class="text-success">@Model.FirstName @Model.LastName</h4>
+						<h5 class="text-info">From: @Model.City ,@Model.Country</h5>
+						<h5 class="text-info">Education: @Model.Education</h5>
+						<h5 class="text-info">Gender: @Model.Gender</h5>
+						<h5 class="text-info">Email: @Model.Email</h5>
+						<h5 class="text-info">Phone Number: @Model.PhoneCode @Model.PhoneNumber</h5>
+						<h5 class="text-info">Address: @Model.Address</h5>
+						<p class="text-right m-0">
+							<button onclick="req(true)" id="class" class="btn btn-success">
+								<i id="icon" class="fa fa-paper-plane"></i> 
+								Accept Request</button>&nbsp;&nbsp;
+							<button onclick="req(false)" id="decline" class="btn btn-danger">
+								<i id="icon" class="fa fa-times-circle"></i> 
+							Decline </button>
+							</p>
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+</section>
+</body>

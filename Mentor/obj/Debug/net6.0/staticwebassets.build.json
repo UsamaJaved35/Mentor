@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nilhvmpmBt6rT+uF+wllymrHeqdItq/AbdEbFqq6utM=",
+  "Hash": "6Gkc2rf3yRGMAMSXSF0ktqFNx9mMYVQhM5H3DtP6tAM=",
   "Source": "Mentor",
   "BasePath": "_content/Mentor",
   "Mode": "Default",
@@ -1477,6 +1477,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\src\\trainers\\trainer-3.jpg"
+    },
+    {
+      "Identity": "E:\\6th semester\\EAD\\Mentor\\Mentor\\wwwroot\\StudentImages\\blue.png",
+      "SourceId": "Mentor",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\6th semester\\EAD\\Mentor\\Mentor\\wwwroot\\",
+      "BasePath": "_content/Mentor",
+      "RelativePath": "StudentImages/blue.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StudentImages\\blue.png"
+    },
+    {
+      "Identity": "E:\\6th semester\\EAD\\Mentor\\Mentor\\wwwroot\\StudentImages\\brown.png",
+      "SourceId": "Mentor",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\6th semester\\EAD\\Mentor\\Mentor\\wwwroot\\",
+      "BasePath": "_content/Mentor",
+      "RelativePath": "StudentImages/brown.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StudentImages\\brown.png"
+    },
+    {
+      "Identity": "E:\\6th semester\\EAD\\Mentor\\Mentor\\wwwroot\\TutorImages\\my professional.png",
+      "SourceId": "Mentor",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\6th semester\\EAD\\Mentor\\Mentor\\wwwroot\\",
+      "BasePath": "_content/Mentor",
+      "RelativePath": "TutorImages/my professional.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\TutorImages\\my professional.png"
     }
   ]
 }

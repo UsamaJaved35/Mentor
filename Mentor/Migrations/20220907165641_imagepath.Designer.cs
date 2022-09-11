@@ -4,6 +4,7 @@ using Mentor.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mentor.Migrations
 {
     [DbContext(typeof(StudentContext))]
-    partial class StudentContextModelSnapshot : ModelSnapshot
+    [Migration("20220907165641_imagepath")]
+    partial class imagepath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,11 +26,11 @@ namespace Mentor.Migrations
 
             modelBuilder.Entity("Mentor.Models.Student", b =>
                 {
-                    b.Property<int>("SId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -91,46 +93,18 @@ namespace Mentor.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("SId");
+                    b.HasKey("Id");
 
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("Mentor.Models.Student_Tutor", b =>
+            modelBuilder.Entity("Tutor_Finder.Models.Tutor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("SId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("requestStatus")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SId");
-
-                    b.HasIndex("TId");
-
-                    b.ToTable("student_Tutors");
-                });
-
-            modelBuilder.Entity("Mentor.Models.Tutor", b =>
-                {
-                    b.Property<int>("TId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TId"), 1L, 1);
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -227,38 +201,9 @@ namespace Mentor.Migrations
                     b.Property<string>("Subject2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TId");
+                    b.HasKey("Id");
 
                     b.ToTable("Tutors");
-                });
-
-            modelBuilder.Entity("Mentor.Models.Student_Tutor", b =>
-                {
-                    b.HasOne("Mentor.Models.Student", "Student")
-                        .WithMany("StudentTutors")
-                        .HasForeignKey("SId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Mentor.Models.Tutor", "Tutor")
-                        .WithMany("StudentTutors")
-                        .HasForeignKey("TId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Student");
-
-                    b.Navigation("Tutor");
-                });
-
-            modelBuilder.Entity("Mentor.Models.Student", b =>
-                {
-                    b.Navigation("StudentTutors");
-                });
-
-            modelBuilder.Entity("Mentor.Models.Tutor", b =>
-                {
-                    b.Navigation("StudentTutors");
                 });
 #pragma warning restore 612, 618
         }
